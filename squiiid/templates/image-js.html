@@ -1,0 +1,48 @@
+<style>
+.test {
+	background: rgba(0, 0, 0, 0.5);
+	width: 15px;
+	height: 15px;
+	-webkit-border-radius: 20px;
+	-moz-border-radius: 20px;
+	border-radius: 20px;
+	margin: 0px 0 0 -2px;
+	border: solid 2px rgba(255, 255, 255, 0.8);
+	line-height: 1em;
+	text-align: center;
+	color: #FFF;
+	cursor: default;
+	font-size: 15px;
+	line-height: 15px;
+	background-color:white;
+	position:absolute;
+	left:268px;
+	top: 162px;
+}
+.test2 {
+	border: solid 2px rgba(255, 255, 255, 0.8);
+	background-color:white;
+	position:absolute;
+	left:268px;
+	top:162px;
+}
+.annotation_label {
+	position:absolute;
+	left:240px;
+	top:140px;
+	visibility:hidden;
+	background-color:white;
+}
+</style>
+<script type="text/javascript">
+function over() {
+	document.getElementById('annotation_label').style.visibility = 'visible';
+}
+
+function out() {
+	document.getElementById('annotation_label').style.visibility = 'hidden';
+}
+</script>
+<img src="/media/images/anteater1.jpg" />
+<div id="annotation_label" class="annotation_label">Luxurious Fur</div>
+<div id="test" class="test2" onmouseover="over()" onmouseout="out()"><a href="http://heyyeyaaeyaaaeyaeyaa.com/" target="_top">+</a></div>
