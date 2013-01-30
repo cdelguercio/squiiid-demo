@@ -1,51 +1,154 @@
-<style>
-.test {
-	background: rgba(0, 0, 0, 0.5);
-	width: 15px;
-	height: 15px;
-	-webkit-border-radius: 20px;
-	-moz-border-radius: 20px;
-	border-radius: 20px;
-	margin: 0px 0 0 -2px;
-	border: solid 2px rgba(255, 255, 255, 0.8);
-	line-height: 1em;
-	text-align: center;
-	color: #FFF;
-	cursor: default;
-	font-size: 15px;
-	line-height: 15px;
-	background-color:white;
-	position:absolute;
-	left:268px;
-	top: 162px;
-	z-index:3;
-}
-.test2 {
-	border: solid 2px rgba(255, 255, 255, 0.8);
-	background-color:white;
-	position:absolute;
-	left:268px;
-	top:162px;
-	z-index:3;
-}
-.annotation_label {
-	position:absolute;
-	left:240px;
-	top:140px;
-	visibility:visible;
-	background-color:white;
-}
-HTML {
-margin:0;
-overflow:hidden;
-border:none;
-}
+<style type="text/css">
 body {
-margin:0;
-scroll=no;
+	background-color:#f2f2f2;
+	font-family:Tahoma, sans-serif;
+	color:#666;
 }
+.wrapper {
+	width:540px;
+	height:auto;
+	position:absolute;
+	top:50px;
+	left:50%;
+	margin-left:-300px;
+	border:30px solid #fff;
+	background-color:#fff;
+}
+.squiiid-object {
+	overflow:hidden;
+}
+.squiiid-img {
+	border:0px;
+}
+.squiiid-ink {
+	position: absolute;
+	top:0px;
+	left:0px;
+}
+.logo {
+	width:40px;
+	height:40px;
+	position: absolute;
+	bottom:10px;
+	right:10px;
+	background-color:#dd5555;
+	opacity:0.7;
+}
+.ink {
+	position: absolute;
+	width:10px;
+	height:10px;
+	border-radius:50%;
+	-moz-border-radius:50%;
+	-o-border-radius:50%;
+	-webkit-border-radius:50%;
+	background-color:#000;
+	border:2px solid #fff;
+	transition:opacity 0.4s ease;
+	-o-transition:opacity 0.4s ease;
+	-moz-transition:opacity 0.4s ease;
+	-webkit-transition:opacity 0.4s ease;
+	margin:-6px 0px 0px -6px;
+	z-index:5;
+	opacity:0;
+}
+.ink .label {
+	display: block;
+	background-color:#dd5555;
+	color:#fff;
+	font-size:12px;
+	padding:4px 7px;
+	border-radius:3px;
+	-moz-border-radius:3px;
+	-o-border-radius:3px;
+	-webkit-border-radius:3px;
+	height:15px;
+	position: absolute;
+	top:-39px;
+	text-align:center;
+	transition:opacity 0.4s ease, top 0.4s ease;
+	-o-transition:opacity 0.4s ease, top 0.4s ease;
+	-moz-transition:opacity 0.4s ease, top 0.4s ease;
+	-webkit-transition:opacity 0.4s ease, top 0.4s ease;
+	opacity:0;
+	z-index:6;
+}
+.ink:hover .label {opacity:1;top:-29px;}
+.ink .label:after {
+	content: '';
+	width:0px;
+	height:0px;
+	border-left:14px solid transparent;
+	border-right:14px solid transparent;
+	border-top:14px solid #dd5555;
+	position: absolute;
+	top:20px;
+	left:50%;
+	margin-left:-14px;
+}
+.squiiid-ink:hover .ink {opacity:1;}
+.ink a:link, .ink a:active, .ink a:visited, .ink a:hover {text-decoration: none;color:#fff;}
+
+.embedbox {
+	width:100%;
+	height:0px;
+	position: absolute;
+	bottom:0px;
+	left:0px;
+	z-index:10;
+	background-color:#fff;
+	overflow:hidden;
+	transition:height 0.4s ease;
+	-o-transition:height 0.4s ease;
+	-moz-transition:height 0.4s ease;
+	-webkit-transition:height 0.4s ease;
+}
+.open {height:60px;}
+.embedbox p {
+	width:100%;
+	height:12px;
+	float:left;
+	color:#666;
+	font-size:10px;
+	text-transform: uppercase;
+}
+.embedbox p span {
+	float:right;
+	cursor: pointer;
+}
+.embedbox .embedcode {
+	width:100%;
+	max-width: 100%;
+	min-width:100%;
+	height:30px;
+	min-height: 30px;
+	max-height: 30px;
+	border:1px solid #ddd;
+	background-color: #fff;
+	color:#666;
+	font-family:monospace;
+}
+
 </style>
-<img src="/media/images/Transparent.gif" style="z-index:2;position:absolute;left:0px;top:0px;height:400px;width:500px;" />
-<img src="/media/images/anteater1.jpg" style="z-index:1;" />
-<div id="annotation_label" class="annotation_label">Luxurious Fur</div>
-<div id="test" class="test2"><a href="http://heyyeyaaeyaaaeyaeyaa.com/" target="_top">+</a></div>
+
+<div class="squiiid-object" style="width:540px;height:362px;">
+	<img src="couch.jpg" width="540" height="362" class="squiiid-img" alt="ALT TEXT GOES HERE"/>
+	<div class="squiiid-ink" style="width:540px;height:362px;">
+		<div class="logo" onclick="showEmbed()"></div>
+		<div class="ink" style="top:200px;left:90px;"><div class="label" style="width:135px;left:-69px;"><a href="#" target="_blank">Sweet ass leather couch</a></div></div>
+		<div class="ink" style="top:70px;left:350px;"><div class="label" style="width:135px;left:-69px;"><a href="#" target="_blank">Sweet ass leather couch</a></div></div>
+		<div class="embedbox" id="embedbox">
+			<p>Embed Code<span onclick="hideEmbed()">x</span></p>
+			<textarea class="embedcode">sdfsfsfsfsfdsdfsfsdfsdf</textarea>
+		</div>
+	</div>
+</div>
+
+<script type="text/javascript">
+function showEmbed() {
+	document.getElementById('embedbox').className ='embedbox open';
+}
+function hideEmbed() {
+	document.getElementById('embedbox').className='embedbox';
+}
+</script>
